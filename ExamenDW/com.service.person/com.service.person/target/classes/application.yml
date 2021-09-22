@@ -1,0 +1,34 @@
+server:
+  port: 8889
+
+
+spring:
+  application:
+    name: person-data
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/person_dw?useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+    username: root
+    password: ''
+    test-while-idle: true
+    validation-query: SELECT 1
+    max-wait: 20000
+    max-active: 300
+    test-on-borrow: true
+    platform: mysql
+    hikari:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/person_dw?useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+      maximum-pool-size: 400
+      idle-timeout: 50000
+      max-lifetime: 2400000
+      connection-timeout: 60000
+      pool-name: mysqlHikariCP
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    preferIpAddress: true
+
